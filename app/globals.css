@@ -3,6 +3,9 @@
 @tailwind utilities;
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
 
 @layer base {
   html {
@@ -10,33 +13,133 @@
   }
   
   body {
-    @apply bg-gray-50 text-gray-900;
+    @apply text-slate-800;
+    background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 25%, #e2e8f0 50%, #cbd5e1 75%, #94a3b8 100%);
+    background-attachment: fixed;
+    min-height: 100vh;
+    position: relative;
+    overflow-x: hidden;
+  }
+  
+  body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+      radial-gradient(circle at 20% 80%, rgba(59, 130, 246, 0.1) 0%, transparent 50%),
+      radial-gradient(circle at 80% 20%, rgba(168, 85, 247, 0.1) 0%, transparent 50%),
+      radial-gradient(circle at 40% 40%, rgba(34, 197, 94, 0.1) 0%, transparent 50%);
+    animation: backgroundShift 20s ease-in-out infinite;
+    z-index: -1;
+  }
+  
+  @keyframes backgroundShift {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.8; }
+  }
+  
+  @keyframes float {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-20px) rotate(180deg); }
+  }
+  
+  @keyframes floatDelayed {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-15px) rotate(-180deg); }
+  }
+  
+  @keyframes floatSlow {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-10px) rotate(90deg); }
+  }
+  
+  @keyframes floatReverse {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-25px) rotate(-90deg); }
+  }
+  
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  .animate-float-delayed {
+    animation: floatDelayed 8s ease-in-out infinite;
+  }
+  
+  .animate-float-slow {
+    animation: floatSlow 10s ease-in-out infinite;
+  }
+  
+  .animate-float-reverse {
+    animation: floatReverse 7s ease-in-out infinite;
+  }
+  
+  .grid-pattern {
+    background-image: 
+      linear-gradient(rgba(102, 126, 234, 0.1) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(102, 126, 234, 0.1) 1px, transparent 1px);
+    background-size: 50px 50px;
+    animation: gridMove 20s linear infinite;
+  }
+  
+  @keyframes gridMove {
+    0% { transform: translate(0, 0); }
+    100% { transform: translate(50px, 50px); }
+  }
+  
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: theme('colors.medical.300') theme('colors.medical.100');
+  }
+  
+  *::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  *::-webkit-scrollbar-track {
+    background: theme('colors.medical.100');
+  }
+  
+  *::-webkit-scrollbar-thumb {
+    background: theme('colors.medical.300');
+    border-radius: 4px;
+  }
+  
+  *::-webkit-scrollbar-thumb:hover {
+    background: theme('colors.medical.400');
   }
 }
 
 @layer components {
   .btn-primary {
-    @apply bg-primary-600 hover:bg-primary-700 text-white font-medium py-2 px-4 rounded-lg transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2;
+    @apply bg-gradient-to-r from-medical-500 to-health-500 hover:from-medical-600 hover:to-health-600 text-white font-medium py-3 px-6 rounded-xl transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-medical-500 focus:ring-offset-2 shadow-medical hover:shadow-glow-medical;
   }
   
   .btn-secondary {
-    @apply bg-gray-200 hover:bg-gray-300 text-gray-900 font-medium py-2 px-4 rounded-lg transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2;
+    @apply bg-neutral-200 hover:bg-neutral-300 text-neutral-900 font-medium py-3 px-6 rounded-xl transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-neutral-500 focus:ring-offset-2;
   }
   
   .btn-emergency {
-    @apply bg-emergency-600 hover:bg-emergency-700 text-white font-medium py-2 px-4 rounded-lg transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-emergency-500 focus:ring-offset-2 animate-pulse;
+    @apply bg-gradient-to-r from-emergency-500 to-emergency-600 hover:from-emergency-600 hover:to-emergency-700 text-white font-medium py-3 px-6 rounded-xl transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-emergency-500 focus:ring-offset-2 shadow-emergency hover:shadow-glow-emergency animate-pulse-emergency;
   }
   
   .card {
-    @apply bg-white rounded-xl shadow-sm border border-gray-200 p-6;
+    @apply bg-white/90 backdrop-blur-sm rounded-2xl shadow-medical border-0 p-6 transition-all duration-300 hover:shadow-xl;
+  }
+  
+  .card-medical {
+    @apply bg-gradient-to-br from-white to-medical-50/50 backdrop-blur-sm rounded-2xl shadow-medical border-0 p-6 transition-all duration-300 hover:shadow-glow-medical;
   }
   
   .input-field {
-    @apply block w-full rounded-lg border-gray-300 shadow-sm focus:border-primary-500 focus:ring-primary-500 sm:text-sm;
+    @apply block w-full rounded-xl border-neutral-300 shadow-sm focus:border-medical-500 focus:ring-medical-500 sm:text-sm transition-all duration-300 bg-white/80 backdrop-blur-sm;
   }
   
   .gradient-bg {
-    @apply bg-gradient-to-br from-primary-50 via-white to-medical-50;
+    @apply bg-gradient-to-br from-medical-50 via-white to-health-50;
   }
   
   .emergency-gradient {
@@ -46,11 +149,85 @@
   .medical-gradient {
     @apply bg-gradient-to-r from-medical-500 to-medical-600;
   }
+  
+  .health-gradient {
+    @apply bg-gradient-to-r from-health-500 to-health-600;
+  }
+  
+  .emergency-alert {
+    @apply bg-gradient-to-r from-emergency-50 to-emergency-100 border border-emergency-200 rounded-2xl p-6 shadow-emergency;
+  }
+  
+  .chat-message {
+    @apply max-w-xs lg:max-w-md px-4 py-3 rounded-2xl shadow-sm;
+  }
+  
+  .chat-message.user {
+    @apply bg-gradient-to-r from-medical-500 to-health-500 text-white ml-auto;
+  }
+  
+  .chat-message.assistant {
+    @apply bg-white/90 backdrop-blur-sm text-neutral-900 border border-neutral-200;
+  }
+  
+  .medical-pattern {
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23e0f2fe' fill-opacity='0.1'%3E%3Cpath d='M30 30c0-11.046-8.954-20-20-20s-20 8.954-20 20 8.954 20 20 20 20-8.954 20-20zm-20-18c9.941 0 18 8.059 18 18s-8.059 18-18 18S-8 39.941-8 30s8.059-18 18-18z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+  
+  /* Range Slider Styling */
+  input[type="range"]::-webkit-slider-thumb {
+    appearance: none;
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    background: #0ea5e9;
+    cursor: pointer;
+    border: 2px solid white;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    transition: all 0.2s ease;
+  }
+  
+  input[type="range"]::-webkit-slider-thumb:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+  }
+  
+  input[type="range"]::-moz-range-thumb {
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    background: #0ea5e9;
+    cursor: pointer;
+    border: 2px solid white;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    transition: all 0.2s ease;
+  }
+  
+  input[type="range"]::-moz-range-thumb:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+  }
+  
+  input[type="range"]::-webkit-slider-track {
+    height: 8px;
+    border-radius: 4px;
+    background: #e5e7eb;
+  }
+  
+  input[type="range"]::-moz-range-track {
+    height: 8px;
+    border-radius: 4px;
+    background: #e5e7eb;
+  }
 }
 
 @layer utilities {
   .text-gradient {
-    @apply bg-gradient-to-r from-primary-600 to-medical-600 bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-medical-600 to-health-600 bg-clip-text text-transparent;
+  }
+  
+  .text-gradient-emergency {
+    @apply bg-gradient-to-r from-emergency-600 to-emergency-700 bg-clip-text text-transparent;
   }
   
   .shadow-soft {
@@ -60,4 +237,299 @@
   .glass {
     @apply bg-white/80 backdrop-blur-sm border border-white/20;
   }
+  
+  .glass-medical {
+    @apply bg-white/90 backdrop-blur-md border border-medical-200/50;
+  }
+  
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+  
+  .animate-pulse-soft {
+    animation: pulseSoft 2s ease-in-out infinite;
+  }
+  
+  .animate-heartbeat {
+    animation: heartbeat 1.5s ease-in-out infinite;
+  }
+  
+  .animate-glow {
+    animation: glow 2s ease-in-out infinite alternate;
+  }
+  
+  /* Modern Glassmorphism UI Components */
+  .medical-card {
+    @apply backdrop-blur-xl rounded-3xl shadow-2xl border border-slate-200/50 p-8;
+    background: linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(248,250,252,0.8) 100%);
+    border: 1px solid rgba(148,163,184,0.3);
+    box-shadow: 
+      0 8px 32px rgba(0,0,0,0.1),
+      inset 0 1px 0 rgba(255,255,255,0.8);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .medical-card:hover {
+    background: linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(248,250,252,0.9) 100%);
+    border: 1px solid rgba(59,130,246,0.3);
+    box-shadow: 
+      0 12px 40px rgba(0,0,0,0.15),
+      inset 0 1px 0 rgba(255,255,255,0.9);
+    transform: translateY(-2px);
+  }
+  
+  .medical-card-header {
+    @apply bg-gradient-to-r from-medical-500/10 to-health-500/10 rounded-2xl p-6 mb-6 border border-medical-200/30;
+  }
+  
+  .medical-input {
+    @apply w-full px-6 py-4 rounded-2xl transition-all duration-300 font-medium;
+    background: linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(248,250,252,0.8) 100%);
+    border: 1px solid rgba(148,163,184,0.3);
+    color: #1e293b;
+    backdrop-filter: blur(10px);
+    box-shadow: 
+      0 4px 15px rgba(0,0,0,0.1),
+      inset 0 1px 0 rgba(255,255,255,0.8);
+  }
+  
+  .medical-input::placeholder {
+    color: rgba(100,116,139,0.6);
+  }
+  
+  .medical-input:focus {
+    background: linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(248,250,252,0.9) 100%);
+    border: 1px solid rgba(59, 130, 246, 0.5);
+    box-shadow: 
+      0 6px 20px rgba(59, 130, 246, 0.2),
+      inset 0 1px 0 rgba(255,255,255,0.9);
+    outline: none;
+    transform: translateY(-1px);
+  }
+  
+  .medical-input:hover {
+    transform: translateY(-1px);
+    box-shadow: 
+      0 6px 20px rgba(59, 130, 246, 0.15),
+      inset 0 1px 0 rgba(255,255,255,0.9);
+  }
+  
+  .medical-button {
+    @apply text-white font-semibold rounded-2xl transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-4;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    box-shadow: 
+      0 4px 15px rgba(102, 126, 234, 0.4),
+      inset 0 1px 0 rgba(255,255,255,0.2);
+    border: 1px solid rgba(255,255,255,0.1);
+    padding: 1rem 2rem;
+  }
+  
+  .medical-button:hover {
+    background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+    box-shadow: 
+      0 6px 20px rgba(102, 126, 234, 0.6),
+      inset 0 1px 0 rgba(255,255,255,0.3);
+    transform: translateY(-2px) scale(1.05);
+  }
+  
+  .medical-tag {
+    @apply inline-flex items-center space-x-2 px-4 py-2 rounded-full text-sm font-medium;
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+    border: 1px solid rgba(102, 126, 234, 0.2);
+    color: #667eea;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .medical-tag:hover {
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.2) 0%, rgba(118, 75, 162, 0.2) 100%);
+    border: 1px solid rgba(102, 126, 234, 0.3);
+    transform: scale(1.05) translateY(-1px);
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.2);
+  }
+  
+  .medical-button-emergency {
+    @apply px-8 py-4 bg-gradient-to-r from-emergency-500 to-emergency-600 hover:from-emergency-600 hover:to-emergency-700 text-white font-bold rounded-2xl shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:scale-105 animate-pulse-emergency focus:outline-none focus:ring-4 focus:ring-emergency-500/30;
+  }
+  
+  .medical-chat-bubble {
+    @apply max-w-xs lg:max-w-md px-6 py-4 rounded-3xl shadow-lg backdrop-blur-sm transition-all duration-300;
+  }
+  
+  .medical-chat-user {
+    @apply bg-gradient-to-r from-medical-500 to-health-500 text-white ml-auto shadow-xl;
+  }
+  
+  .medical-chat-assistant {
+    @apply bg-white/95 backdrop-blur-xl text-neutral-900 border-2 border-medical-100 shadow-xl;
+  }
+  
+  .medical-severity-slider {
+    @apply w-full h-3 bg-gradient-to-r from-health-200 via-warning-200 to-emergency-200 rounded-full appearance-none cursor-pointer shadow-inner;
+  }
+  
+  .medical-severity-thumb {
+    @apply w-6 h-6 bg-white rounded-full shadow-2xl border-4 border-medical-500 cursor-pointer transition-all duration-200 hover:scale-110;
+  }
+  
+  .medical-status-indicator {
+    @apply inline-flex items-center px-4 py-2 rounded-full text-sm font-semibold shadow-lg;
+  }
+  
+  .medical-status-emergency {
+    @apply bg-gradient-to-r from-emergency-500 to-emergency-600 text-white animate-pulse-emergency;
+  }
+  
+  .medical-status-warning {
+    @apply bg-gradient-to-r from-warning-500 to-warning-600 text-white;
+  }
+  
+  .medical-status-healthy {
+    @apply bg-gradient-to-r from-health-500 to-health-600 text-white;
+  }
+  
+  .medical-grid {
+    @apply grid gap-6;
+  }
+  
+  .medical-grid-2 {
+    @apply grid-cols-1 md:grid-cols-2;
+  }
+  
+  .medical-grid-3 {
+    @apply grid-cols-1 md:grid-cols-2 lg:grid-cols-3;
+  }
+  
+  .medical-grid-4 {
+    @apply grid-cols-1 md:grid-cols-2 lg:grid-cols-4;
+  }
+  
+  .medical-divider {
+    @apply h-px bg-gradient-to-r from-transparent via-medical-300 to-transparent my-8;
+  }
+  
+  .medical-badge {
+    @apply inline-flex items-center px-4 py-2 rounded-full text-sm font-medium;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .medical-badge-primary {
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+    border: 1px solid rgba(102, 126, 234, 0.2);
+    color: #667eea;
+  }
+  
+  .medical-badge-primary:hover {
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.2) 0%, rgba(118, 75, 162, 0.2) 100%);
+    border: 1px solid rgba(102, 126, 234, 0.3);
+    transform: scale(1.05) translateY(-1px);
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.2);
+  }
+  
+  .medical-badge-emergency {
+    background: linear-gradient(135deg, rgba(239, 68, 68, 0.1) 0%, rgba(220, 38, 38, 0.1) 100%);
+    border: 1px solid rgba(239, 68, 68, 0.2);
+    color: #ef4444;
+  }
+  
+  .medical-badge-emergency:hover {
+    background: linear-gradient(135deg, rgba(239, 68, 68, 0.2) 0%, rgba(220, 38, 38, 0.2) 100%);
+    border: 1px solid rgba(239, 68, 68, 0.3);
+    transform: scale(1.05) translateY(-1px);
+    box-shadow: 0 4px 12px rgba(239, 68, 68, 0.2);
+  }
+  
+  .medical-badge-warning {
+    background: linear-gradient(135deg, rgba(245, 158, 11, 0.1) 0%, rgba(217, 119, 6, 0.1) 100%);
+    border: 1px solid rgba(245, 158, 11, 0.2);
+    color: #f59e0b;
+  }
+  
+  .medical-badge-warning:hover {
+    background: linear-gradient(135deg, rgba(245, 158, 11, 0.2) 0%, rgba(217, 119, 6, 0.2) 100%);
+    border: 1px solid rgba(245, 158, 11, 0.3);
+    transform: scale(1.05) translateY(-1px);
+    box-shadow: 0 4px 12px rgba(245, 158, 11, 0.2);
+  }
+  
+  .medical-badge-health {
+    background: linear-gradient(135deg, rgba(34, 197, 94, 0.1) 0%, rgba(22, 163, 74, 0.1) 100%);
+    border: 1px solid rgba(34, 197, 94, 0.2);
+    color: #22c55e;
+  }
+  
+  .medical-badge-health:hover {
+    background: linear-gradient(135deg, rgba(34, 197, 94, 0.2) 0%, rgba(22, 163, 74, 0.2) 100%);
+    border: 1px solid rgba(34, 197, 94, 0.3);
+    transform: scale(1.05) translateY(-1px);
+    box-shadow: 0 4px 12px rgba(34, 197, 94, 0.2);
+  }
+}
+
+/* Advanced Animations */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes pulseSoft {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.8; }
+}
+
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1); }
+  15% { transform: scale(1.05); }
+  30% { transform: scale(1); }
+  45% { transform: scale(1.05); }
+  60% { transform: scale(1); }
+}
+
+@keyframes glow {
+  0%, 100% { box-shadow: 0 0 20px rgba(34, 197, 94, 0.4); }
+  50% { box-shadow: 0 0 30px rgba(34, 197, 94, 0.8); }
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-slide-in-up {
+  animation: slideInUp 0.6s ease-out;
+}
+
+.animate-slide-in-right {
+  animation: slideInRight 0.6s ease-out;
+}
+
+.animate-fade-in-scale {
+  animation: fadeInScale 0.6s ease-out;
 }

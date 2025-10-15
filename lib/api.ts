@@ -75,6 +75,15 @@ export const apiClient = {
     })
     return response.data
   },
+
+  // Save assessment
+  async saveAssessment(sessionId: string, assessment: any) {
+    const response = await api.post('/api/history/save', {
+      session_id: sessionId,
+      assessment,
+    })
+    return response.data
+  },
 }
 
 export default api
