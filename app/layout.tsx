@@ -11,6 +11,11 @@ export const metadata: Metadata = {
   keywords: ['healthcare', 'symptom checker', 'AI', 'medical', 'emergency'],
   authors: [{ name: 'Healthcare AI Team' }],
   viewport: 'width=device-width, initial-scale=1',
+  icons: {
+    icon: '/lib/diagnosis.png',
+    shortcut: '/lib/diagnosis.png',
+    apple: '/lib/diagnosis.png',
+  },
 }
 
 export default function RootLayout({
