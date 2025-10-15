@@ -1,201 +1,205 @@
-# MedAI Healthcare Intelligence Frontend
+# 🏥 Healthcare Symptom Checker Frontend
 
 <div align="center">
 
-![MedAI Frontend](https://img.shields.io/badge/MedAI-Healthcare%20Intelligence-blue?style=for-the-badge&logo=medical-cross)
+![Healthcare Frontend](https://img.shields.io/badge/Healthcare-Frontend-blue?style=for-the-badge&logo=medical-cross)
 ![Next.js](https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=next.js&logoColor=white)
 ![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
-![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
 
-**Enterprise-Grade Healthcare AI Frontend Platform**
+**Modern, responsive frontend for AI-powered medical symptom analysis**
 
-[![Deployment Status](https://img.shields.io/badge/Deployment-Production%20Ready-green?style=flat-square)](https://rag-based-symptom-checker.vercel.app)
-[![Performance](https://img.shields.io/badge/Performance-A%2B-green?style=flat-square)](https://pagespeed.web.dev/)
-[![Accessibility](https://img.shields.io/badge/Accessibility-AA%20Compliant-blue?style=flat-square)](https://www.w3.org/WAI/WCAG21/quickref/)
+[🚀 Quick Start](#-quick-start) • [📖 Documentation](#-documentation) • [🏗️ Architecture](#️-architecture) • [🔧 API Integration](#-api-integration) • [🚀 Deployment](#-deployment)
 
 </div>
 
-## 🏥 Overview
+---
 
-MedAI Healthcare Intelligence Frontend is a cutting-edge, production-ready web application that provides an intuitive and professional interface for AI-powered medical symptom analysis. Built with modern web technologies and designed with healthcare professionals and patients in mind.
+## 📋 Table of Contents
 
-### 🎯 Key Features
+- [Overview](#-overview)
+- [Features](#-features)
+- [Architecture](#️-architecture)
+- [Quick Start](#-quick-start)
+- [API Integration](#-api-integration)
+- [Components](#-components)
+- [Styling](#-styling)
+- [Deployment](#-deployment)
+- [Development](#-development)
+- [Contributing](#-contributing)
 
-- **🎨 Modern UI/UX**: Glassmorphism design with futuristic medical aesthetics
-- **📱 Responsive Design**: Seamless experience across all devices
-- **⚡ Real-time Analysis**: Live symptom assessment with instant feedback
-- **🔒 Secure Communication**: Encrypted API communication with healthcare backend
-- **📊 Interactive Assessments**: Dynamic forms with intelligent validation
-- **💾 Local Storage**: Offline capability with assessment saving
-- **🎭 Smooth Animations**: Framer Motion powered micro-interactions
-- **♿ Accessibility**: WCAG 2.1 AA compliant interface
+---
+
+## 🎯 Overview
+
+The Healthcare Symptom Checker Frontend is a modern, responsive web application built with Next.js, TypeScript, and Tailwind CSS. It provides an intuitive user interface for the AI-powered medical symptom analysis system, featuring real-time emergency detection, multi-turn conversations, and comprehensive health assessments.
+
+### 🎯 Key Capabilities
+
+- **🎨 Modern UI/UX**: Clean, professional design with responsive layout
+- **🚨 Emergency Detection**: Real-time alerts for life-threatening conditions
+- **💬 Interactive Chat**: Multi-turn conversation interface
+- **📊 Health Assessments**: Comprehensive symptom analysis display
+- **🔒 Type Safety**: Full TypeScript implementation
+- **📱 Mobile Responsive**: Optimized for all device sizes
+
+---
+
+## ✨ Features
+
+### 🚨 Emergency Detection UI
+- **Real-time Alerts**: Immediate visual warnings for emergency conditions
+- **Emergency Modal**: Prominent emergency notification system
+- **Call-to-Action**: Direct 911 integration prompts
+- **Severity Indicators**: Color-coded urgency levels
+
+### 💬 Interactive Chat Interface
+- **Session Management**: Create and manage health assessment sessions
+- **Multi-turn Conversations**: Context-aware symptom discussions
+- **Message History**: Complete conversation tracking
+- **Typing Indicators**: Real-time user feedback
+
+### 📊 Assessment Display
+- **Condition Cards**: Detailed probable condition information
+- **Confidence Scores**: Probability-based condition matching
+- **Recommendations**: Evidence-based care suggestions
+- **Body System Mapping**: Visual system categorization
+
+### 🎨 Modern Design System
+- **Component Library**: Reusable UI components
+- **Dark/Light Mode**: Theme switching capability
+- **Accessibility**: WCAG compliant design
+- **Animations**: Smooth transitions and micro-interactions
+
+---
 
 ## 🏗️ Architecture
 
+### Frontend Architecture Diagram
+
 ```mermaid
 graph TB
-    subgraph "Presentation Layer"
-        A[Next.js App Router] --> B[React Components]
-        B --> C[UI Components]
-        B --> D[Form Components]
-        B --> E[Chat Interface]
+    subgraph "User Interface"
+        A[Session Form]
+        B[Chat Interface]
+        C[Assessment Cards]
+        D[Emergency Alerts]
     end
     
     subgraph "State Management"
-        F[React Hooks] --> G[Local State]
-        F --> H[Context API]
-        F --> I[Local Storage]
+        E[React State]
+        F[Context API]
+        G[Local Storage]
     end
     
-    subgraph "Styling & Animation"
-        J[Tailwind CSS] --> K[Custom Design System]
-        L[Framer Motion] --> M[Micro-interactions]
-        N[Custom CSS] --> O[Glassmorphism Effects]
+    subgraph "API Layer"
+        H[API Client]
+        I[HTTP Requests]
+        J[Error Handling]
     end
     
-    subgraph "API Integration"
-        P[Axios Client] --> Q[API Interceptors]
-        Q --> R[Error Handling]
-        Q --> S[Request/Response Logging]
+    subgraph "Backend Services"
+        K[Healthcare API]
+        L[Session Management]
+        M[LLM Services]
     end
     
-    subgraph "Type Safety"
-        T[TypeScript] --> U[Type Definitions]
-        U --> V[API Types]
-        U --> W[Component Props]
+    A --> E
+    B --> F
+    C --> G
+    D --> E
+    
+    E --> H
+    F --> I
+    G --> J
+    
+    H --> K
+    I --> L
+    J --> M
+```
+
+### Component Architecture
+
+```mermaid
+graph LR
+    subgraph "UI Components"
+        A["SessionForm<br/>Patient Info Input"]
+        B["ChatInterface<br/>Message Exchange"]
+        C["AssessmentCard<br/>Results Display"]
+        D["EmergencyAlert<br/>Critical Warnings"]
     end
     
-    subgraph "Build & Deployment"
-        X[Next.js Build] --> Y[Static Generation]
-        Z[Vercel Deployment] --> AA[CDN Distribution]
+    subgraph "Layout Components"
+        E["Header<br/>Navigation"]
+        F["Sidebar<br/>Session History"]
+        G["Footer<br/>Legal Info"]
     end
     
-    A --> F
-    A --> J
-    A --> L
-    A --> P
-    A --> T
-    P --> BB[Healthcare Backend API]
+    subgraph "Utility Components"
+        H["Button<br/>Interactive Elements"]
+        I["Input<br/>Form Controls"]
+        J["Card<br/>Content Containers"]
+        K["Badge<br/>Status Indicators"]
+    end
+    
+    A --> H
+    B --> I
+    C --> J
+    D --> K
+    
+    E --> A
+    F --> B
+    G --> C
 ```
 
-## 🛠️ Technology Stack
+---
 
-### Core Framework
-- **Next.js 14+**: React framework with App Router
-- **React 18+**: Modern React with concurrent features
-- **TypeScript 5+**: Type-safe development
-- **Node.js 18+**: Runtime environment
+## 🚀 Quick Start
 
-### Styling & UI
-- **Tailwind CSS 3+**: Utility-first CSS framework
-- **Framer Motion**: Animation and gesture library
-- **Lucide React**: Modern icon library
-- **Custom Design System**: Healthcare-themed components
+### Prerequisites
 
-### State Management
-- **React Hooks**: useState, useEffect, useContext
-- **Local Storage**: Client-side data persistence
-- **Context API**: Global state management
+- **Node.js 18+**
+- **npm** or **yarn**
+- **Healthcare Backend API** running
 
-### API & Data
-- **Axios**: HTTP client with interceptors
-- **React Hook Form**: Form management and validation
-- **Toast Notifications**: User feedback system
+### 1. Clone Repository
 
-### Development Tools
-- **ESLint**: Code linting and formatting
-- **Prettier**: Code formatting
-- **TypeScript**: Static type checking
-- **PostCSS**: CSS processing
-
-## 📁 Project Structure
-
-```
-healthcare-frontend/
-├── app/                          # Next.js App Router
-│   ├── globals.css              # Global styles and design system
-│   ├── layout.tsx               # Root layout with metadata
-│   ├── page.tsx                 # Main application page
-│   └── loading.tsx              # Loading UI component
-├── components/                   # Reusable UI components
-│   ├── ChatInterface.tsx        # Main chat interface
-│   ├── SessionForm.tsx          # Patient information form
-│   ├── SavedAssessments.tsx     # Assessment history modal
-│   ├── AssessmentCard.tsx       # Assessment display component
-│   ├── EmergencyAlert.tsx       # Emergency notification
-│   └── ui/                      # Base UI components
-├── lib/                         # Utility libraries
-│   ├── api.ts                   # API client configuration
-│   ├── utils.ts                 # Utility functions
-│   └── diagnosis.png            # Application favicon
-├── types/                       # TypeScript type definitions
-│   └── api.ts                   # API response types
-├── public/                      # Static assets
-├── tailwind.config.js           # Tailwind configuration
-├── tsconfig.json                # TypeScript configuration
-├── next.config.js               # Next.js configuration
-└── package.json                 # Dependencies and scripts
+```bash
+git clone https://github.com/yourusername/healthcare-frontend.git
+cd healthcare-frontend
 ```
 
-## 🎨 Design System
+### 2. Install Dependencies
 
-### Color Palette
-
-```css
-/* Primary Medical Colors */
---medical-50: #f0f9ff;
---medical-500: #3b82f6;
---medical-600: #2563eb;
---medical-700: #1d4ed8;
-
-/* Health & Emergency Colors */
---health-400: #34d399;
---health-500: #10b981;
---emergency-500: #ef4444;
---emergency-600: #dc2626;
-
-/* Neutral Colors */
---slate-50: #f8fafc;
---slate-100: #f1f5f9;
---slate-800: #1e293b;
---slate-900: #0f172a;
+```bash
+npm install
+# or
+yarn install
 ```
 
-### Typography
+### 3. Environment Setup
 
-```css
-/* Font Families */
-font-family: 'Inter', system-ui, sans-serif;     /* Primary */
-font-family: 'Poppins', sans-serif;              /* Headings */
-font-family: 'Space Grotesk', sans-serif;        /* Futuristic */
+```bash
+# Create environment file
+cp .env.example .env.local
+
+# Edit .env.local with your backend API URL
+NEXT_PUBLIC_API_URL=http://localhost:8000
 ```
 
-### Component Classes
+### 4. Run Development Server
 
-```css
-/* Glassmorphism Cards */
-.medical-card {
-  @apply backdrop-blur-xl rounded-3xl shadow-2xl border border-white/10 p-8;
-  background: linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(248,250,252,0.8) 100%);
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-/* Medical Input Fields */
-.medical-input {
-  @apply w-full px-6 py-4 rounded-2xl transition-all duration-300 font-medium;
-  background: linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(248,250,252,0.8) 100%);
-  border: 1px solid rgba(148,163,184,0.3);
-  color: #1e293b;
-}
-
-/* Medical Buttons */
-.medical-button {
-  @apply text-white font-semibold rounded-2xl transition-all duration-300 transform hover:scale-105;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
-}
+```bash
+npm run dev
+# or
+yarn dev
 ```
+
+### 5. Access Application
+
+Open [http://localhost:3000](http://localhost:3000) in your browser.
+
+---
 
 ## 🔧 API Integration
 
@@ -203,25 +207,35 @@ font-family: 'Space Grotesk', sans-serif;        /* Futuristic */
 
 ```typescript
 // lib/api.ts
-const api = axios.create({
-  baseURL: process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000',
-  timeout: 60000, // 60 seconds for RAG processing
-  headers: {
-    'Content-Type': 'application/json',
-  },
-})
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000'
 
-// Request/Response Interceptors
-api.interceptors.request.use(
-  (config) => {
-    console.log(`🚀 API Request: ${config.method?.toUpperCase()} ${config.url}`)
-    return config
+export const apiClient = {
+  // Start new session
+  startSession: async (data: SessionRequest) => {
+    const response = await fetch(`${API_BASE_URL}/api/symptom/start`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)
+    })
+    return response.json()
   },
-  (error) => {
-    console.error('❌ API Request Error:', error)
-    return Promise.reject(error)
+
+  // Send symptom message
+  sendMessage: async (data: SymptomMessage) => {
+    const response = await fetch(`${API_BASE_URL}/api/symptom/message`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)
+    })
+    return response.json()
+  },
+
+  // Get conversation history
+  getHistory: async (sessionId: string) => {
+    const response = await fetch(`${API_BASE_URL}/api/history/${sessionId}`)
+    return response.json()
   }
-)
+}
 ```
 
 ### Type Definitions
@@ -229,8 +243,8 @@ api.interceptors.request.use(
 ```typescript
 // types/api.ts
 export interface SessionRequest {
-  patient_age: number
-  patient_sex: 'male' | 'female' | 'other'
+  age: number
+  sex: string
   medical_history?: string[]
   medications?: string[]
   allergies?: string[]
@@ -239,260 +253,538 @@ export interface SessionRequest {
 export interface SymptomMessage {
   session_id: string
   message: string
-  severity?: number
+  severity: number
+  duration?: string
 }
 
 export interface Assessment {
-  probable_conditions: Condition[]
-  urgency: 'emergency' | 'urgent' | 'moderate' | 'low' | 'routine' | 'self_care'
+  urgency: 'emergency' | 'urgent' | 'routine'
   emergency_warning?: string
+  probable_conditions: Condition[]
   recommendations: string[]
-}
-
-export interface Condition {
-  name: string
-  probability: number
-  description: string
-  urgency_level: string
-  recommendations: string[]
+  disclaimer: string
 }
 ```
+
+---
+
+## 🧩 Components
+
+### Core Components
+
+#### SessionForm
+```typescript
+// components/SessionForm.tsx
+interface SessionFormProps {
+  onSubmit: (data: SessionRequest) => void
+  loading?: boolean
+}
+
+const SessionForm: React.FC<SessionFormProps> = ({ onSubmit, loading }) => {
+  // Form logic for patient information
+  return (
+    <Card>
+      <form onSubmit={handleSubmit}>
+        <Input label="Age" type="number" {...register('age')} />
+        <Select label="Sex" {...register('sex')}>
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+        </Select>
+        <Button type="submit" loading={loading}>
+          Start Assessment
+        </Button>
+      </form>
+    </Card>
+  )
+}
+```
+
+#### ChatInterface
+```typescript
+// components/ChatInterface.tsx
+const ChatInterface: React.FC<ChatInterfaceProps> = ({ sessionId }) => {
+  const [messages, setMessages] = useState<Message[]>([])
+  
+  const sendMessage = async (message: string, severity: number) => {
+    const response = await apiClient.sendMessage({
+      session_id: sessionId,
+      message,
+      severity
+    })
+    setMessages(prev => [...prev, response])
+  }
+
+  return (
+    <div className="chat-container">
+      {messages.map(message => (
+        <MessageBubble key={message.id} message={message} />
+      ))}
+      <MessageInput onSend={sendMessage} />
+    </div>
+  )
+}
+```
+
+#### EmergencyAlert
+```typescript
+// components/EmergencyAlert.tsx
+const EmergencyAlert: React.FC<EmergencyAlertProps> = ({ assessment }) => {
+  if (assessment.urgency !== 'emergency') return null
+
+  return (
+    <div className="emergency-alert">
+      <AlertTriangle className="w-6 h-6 text-red-500" />
+      <div>
+        <h3>🚨 MEDICAL EMERGENCY DETECTED 🚨</h3>
+        <p>{assessment.emergency_warning}</p>
+        <Button variant="destructive" size="lg">
+          Call 911 Immediately
+        </Button>
+      </div>
+    </div>
+  )
+}
+```
+
+---
+
+## 🎨 Styling
+
+### Tailwind CSS Configuration
+
+```javascript
+// tailwind.config.js
+module.exports = {
+  content: [
+    './pages/**/*.{js,ts,jsx,tsx,mdx}',
+    './components/**/*.{js,ts,jsx,tsx,mdx}',
+    './app/**/*.{js,ts,jsx,tsx,mdx}',
+  ],
+  theme: {
+    extend: {
+      colors: {
+        primary: {
+          50: '#eff6ff',
+          500: '#3b82f6',
+          600: '#2563eb',
+          700: '#1d4ed8',
+        },
+        emergency: {
+          50: '#fef2f2',
+          500: '#ef4444',
+          600: '#dc2626',
+          700: '#b91c1c',
+        }
+      },
+      animation: {
+        'pulse-emergency': 'pulse 1s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+      }
+    },
+  },
+  plugins: [],
+}
+```
+
+### Component Styling
+
+```css
+/* styles/globals.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .emergency-alert {
+    @apply bg-red-50 border border-red-200 rounded-lg p-4 flex items-start space-x-3;
+  }
+  
+  .chat-message {
+    @apply max-w-xs lg:max-w-md px-4 py-2 rounded-lg;
+  }
+  
+  .chat-message.user {
+    @apply bg-primary-500 text-white ml-auto;
+  }
+  
+  .chat-message.assistant {
+    @apply bg-gray-100 text-gray-900;
+  }
+}
+```
+
+---
 
 ## 🚀 Deployment
 
-### Environment Variables
+### Vercel Deployment (Recommended)
+
+1. **Connect Repository**:
+   ```bash
+   # Install Vercel CLI
+   npm i -g vercel
+   
+   # Deploy
+   vercel
+   ```
+
+2. **Environment Variables**:
+   ```bash
+   # Set in Vercel dashboard
+   NEXT_PUBLIC_API_URL=https://your-backend-api.vercel.app
+   ```
+
+3. **Automatic Deployments**:
+   - Push to `main` branch triggers automatic deployment
+   - Preview deployments for pull requests
+
+### Netlify Deployment
+
+1. **Build Configuration**:
+   ```toml
+   # netlify.toml
+   [build]
+     command = "npm run build"
+     publish = ".next"
+   
+   [build.environment]
+     NODE_VERSION = "18"
+   ```
+
+2. **Deploy**:
+   ```bash
+   # Install Netlify CLI
+   npm i -g netlify-cli
+   
+   # Deploy
+   netlify deploy --prod
+   ```
+
+### Docker Deployment
+
+```dockerfile
+# Dockerfile
+FROM node:18-alpine AS deps
+WORKDIR /app
+COPY package*.json ./
+RUN npm ci --only=production
+
+FROM node:18-alpine AS builder
+WORKDIR /app
+COPY . .
+COPY --from=deps /app/node_modules ./node_modules
+RUN npm run build
+
+FROM node:18-alpine AS runner
+WORKDIR /app
+ENV NODE_ENV production
+COPY --from=builder /app/public ./public
+COPY --from=builder /app/.next/standalone ./
+COPY --from=builder /app/.next/static ./.next/static
+
+EXPOSE 3000
+CMD ["node", "server.js"]
+```
+
+---
+
+## 🛠️ Development
+
+### Project Structure
+
+```
+healthcare-frontend/
+├── app/                    # Next.js 13+ app directory
+│   ├── globals.css        # Global styles
+│   ├── layout.tsx         # Root layout
+│   └── page.tsx           # Home page
+├── components/            # React components
+│   ├── ui/               # Base UI components
+│   │   ├── Button.tsx
+│   │   ├── Input.tsx
+│   │   ├── Card.tsx
+│   │   └── Badge.tsx
+│   ├── SessionForm.tsx   # Patient info form
+│   ├── ChatInterface.tsx # Chat component
+│   ├── AssessmentCard.tsx # Results display
+│   └── EmergencyAlert.tsx # Emergency warnings
+├── lib/                  # Utility functions
+│   ├── api.ts           # API client
+│   └── utils.ts         # Helper functions
+├── types/               # TypeScript definitions
+│   └── api.ts          # API types
+├── hooks/              # Custom React hooks
+│   └── useApi.ts      # API hook
+├── styles/             # Additional styles
+├── public/             # Static assets
+├── package.json
+├── tailwind.config.js
+├── tsconfig.json
+└── next.config.js
+```
+
+### Available Scripts
 
 ```bash
-# API Configuration
-NEXT_PUBLIC_API_URL=https://symptoms-checker-api-lqcc.onrender.com
+# Development
+npm run dev          # Start development server
+npm run build        # Build for production
+npm run start        # Start production server
+npm run lint         # Run ESLint
+npm run type-check   # Run TypeScript checks
 
-# Application Configuration
-NEXT_PUBLIC_APP_NAME="MedAI Healthcare Intelligence"
-NEXT_PUBLIC_APP_VERSION="1.0.0"
-
-# Analytics (Optional)
-NEXT_PUBLIC_GA_ID=your-google-analytics-id
+# Testing
+npm run test         # Run tests
+npm run test:watch   # Run tests in watch mode
+npm run test:coverage # Run tests with coverage
 ```
 
-### Vercel Deployment
-
-1. **Connect Repository**: Link your GitHub repository to Vercel
-2. **Configure Project**:
-   - **Framework Preset**: Next.js
-   - **Build Command**: `npm run build`
-   - **Output Directory**: `.next`
-   - **Install Command**: `npm install`
-3. **Set Environment Variables**: Add all required environment variables
-4. **Deploy**: Vercel will automatically build and deploy
-
-### Local Development
+### Code Quality
 
 ```bash
-# Clone repository
-git clone https://github.com/your-username/healthcare-frontend.git
-cd healthcare-frontend
-
-# Install dependencies
-npm install
-
-# Set environment variables
-cp .env.example .env.local
-# Edit .env.local with your configuration
-
-# Run development server
-npm run dev
-
-# Build for production
-npm run build
-
-# Start production server
-npm start
+# Pre-commit hooks
+npm run prepare      # Install husky hooks
+npm run lint:fix     # Fix linting issues
+npm run format       # Format code with Prettier
 ```
 
-### Build Scripts
-
-```json
-{
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint",
-    "type-check": "tsc --noEmit",
-    "format": "prettier --write .",
-    "analyze": "cross-env ANALYZE=true next build"
-  }
-}
-```
-
-## 📊 Performance Metrics
-
-### Core Web Vitals
-- **Largest Contentful Paint (LCP)**: < 1.5s
-- **First Input Delay (FID)**: < 100ms
-- **Cumulative Layout Shift (CLS)**: < 0.1
-- **First Contentful Paint (FCP)**: < 1.0s
-
-### Bundle Analysis
-- **Initial Bundle Size**: ~200KB (gzipped)
-- **JavaScript Bundle**: ~150KB
-- **CSS Bundle**: ~50KB
-- **Image Optimization**: Next.js automatic optimization
-
-### Performance Features
-- **Static Generation**: Pre-rendered pages for optimal performance
-- **Image Optimization**: Automatic WebP conversion and lazy loading
-- **Code Splitting**: Automatic route-based code splitting
-- **Tree Shaking**: Unused code elimination
-
-## 🔒 Security Features
-
-### Data Protection
-- **HTTPS Only**: All communications encrypted
-- **CSP Headers**: Content Security Policy implementation
-- **XSS Protection**: Input sanitization and validation
-- **CSRF Protection**: Cross-site request forgery prevention
-
-### Privacy Compliance
-- **GDPR Compliant**: European data protection standards
-- **HIPAA Considerations**: Healthcare data handling best practices
-- **Local Storage**: Client-side data persistence
-- **No Data Collection**: No user tracking or analytics by default
+---
 
 ## 🧪 Testing
 
-### Test Configuration
-
-```bash
-# Run all tests
-npm test
-
-# Run tests in watch mode
-npm run test:watch
-
-# Run tests with coverage
-npm run test:coverage
-
-# Run E2E tests
-npm run test:e2e
-```
-
-### Test Categories
-- **Unit Tests**: Component and utility function testing
-- **Integration Tests**: API integration and data flow testing
-- **E2E Tests**: Complete user journey testing
-- **Visual Regression Tests**: UI consistency testing
-
-## 📱 Responsive Design
-
-### Breakpoints
-
-```css
-/* Tailwind CSS Breakpoints */
-sm: 640px   /* Small devices */
-md: 768px   /* Medium devices */
-lg: 1024px  /* Large devices */
-xl: 1280px  /* Extra large devices */
-2xl: 1536px /* 2X large devices */
-```
-
-### Device Support
-- **Mobile**: iOS Safari, Android Chrome
-- **Tablet**: iPad, Android tablets
-- **Desktop**: Chrome, Firefox, Safari, Edge
-- **Accessibility**: Screen readers, keyboard navigation
-
-## ♿ Accessibility
-
-### WCAG 2.1 AA Compliance
-- **Color Contrast**: Minimum 4.5:1 ratio
-- **Keyboard Navigation**: Full keyboard accessibility
-- **Screen Reader Support**: ARIA labels and semantic HTML
-- **Focus Management**: Visible focus indicators
-
-### Accessibility Features
-- **Alt Text**: Descriptive image alternatives
-- **ARIA Labels**: Screen reader friendly labels
-- **Semantic HTML**: Proper heading hierarchy
-- **Focus Trapping**: Modal and form focus management
-
-## 🎭 Animation System
-
-### Framer Motion Integration
+### Component Testing
 
 ```typescript
-// Page transitions
-const pageVariants = {
-  initial: { opacity: 0, y: 20 },
-  in: { opacity: 1, y: 0 },
-  out: { opacity: 0, y: -20 }
-}
+// __tests__/SessionForm.test.tsx
+import { render, screen, fireEvent } from '@testing-library/react'
+import { SessionForm } from '../components/SessionForm'
 
-// Component animations
-const cardVariants = {
-  hover: { 
-    scale: 1.02, 
-    y: -2,
-    transition: { duration: 0.2 }
+describe('SessionForm', () => {
+  it('submits form with valid data', async () => {
+    const mockSubmit = jest.fn()
+    render(<SessionForm onSubmit={mockSubmit} />)
+    
+    fireEvent.change(screen.getByLabelText('Age'), { target: { value: '30' } })
+    fireEvent.change(screen.getByLabelText('Sex'), { target: { value: 'male' } })
+    fireEvent.click(screen.getByText('Start Assessment'))
+    
+    expect(mockSubmit).toHaveBeenCalledWith({
+      age: 30,
+      sex: 'male',
+      medical_history: [],
+      medications: [],
+      allergies: []
+    })
+  })
+})
+```
+
+### API Integration Testing
+
+```typescript
+// __tests__/api.test.ts
+import { apiClient } from '../lib/api'
+
+describe('API Client', () => {
+  it('creates session successfully', async () => {
+    const sessionData = {
+      age: 30,
+      sex: 'male'
+    }
+    
+    const result = await apiClient.startSession(sessionData)
+    expect(result.session_id).toBeDefined()
+  })
+})
+```
+
+---
+
+## 📊 Performance
+
+### Optimization Features
+
+- **Next.js 13+ App Router**: Latest routing and rendering optimizations
+- **Image Optimization**: Automatic image optimization with `next/image`
+- **Code Splitting**: Automatic code splitting for optimal loading
+- **Static Generation**: Pre-rendered pages for better performance
+- **Bundle Analysis**: Built-in bundle analyzer
+
+### Performance Monitoring
+
+```typescript
+// lib/analytics.ts
+export const trackPerformance = (metric: string, value: number) => {
+  if (typeof window !== 'undefined') {
+    // Send to analytics service
+    gtag('event', 'performance', {
+      metric_name: metric,
+      value: value
+    })
   }
 }
 ```
 
-### Animation Types
-- **Page Transitions**: Smooth route changes
-- **Micro-interactions**: Button hover and click effects
-- **Loading States**: Skeleton screens and spinners
-- **Form Feedback**: Success and error animations
+---
 
-## 📚 Documentation
+## 🔒 Security
 
-### Component Documentation
-- **Storybook**: Interactive component documentation
-- **TypeScript**: Inline type documentation
-- **JSDoc**: Function and component documentation
+### Security Features
 
-### API Documentation
-- **Type Definitions**: Complete API type coverage
-- **Error Handling**: Comprehensive error scenarios
-- **Usage Examples**: Code examples and best practices
+- **Input Validation**: Client-side validation with TypeScript
+- **XSS Protection**: React's built-in XSS protection
+- **CSRF Protection**: SameSite cookies and CSRF tokens
+- **Content Security Policy**: Strict CSP headers
+- **Environment Variables**: Secure API key management
+
+### Security Headers
+
+```javascript
+// next.config.js
+module.exports = {
+  async headers() {
+    return [
+      {
+        source: '/(.*)',
+        headers: [
+          {
+            key: 'X-Frame-Options',
+            value: 'DENY',
+          },
+          {
+            key: 'X-Content-Type-Options',
+            value: 'nosniff',
+          },
+          {
+            key: 'Referrer-Policy',
+            value: 'strict-origin-when-cross-origin',
+          },
+        ],
+      },
+    ]
+  },
+}
+```
+
+---
 
 ## 🤝 Contributing
 
 ### Development Workflow
-1. **Fork Repository**: Create your fork
-2. **Create Branch**: `git checkout -b feature/your-feature`
-3. **Install Dependencies**: `npm install`
-4. **Make Changes**: Implement your feature
-5. **Add Tests**: Ensure test coverage
-6. **Submit PR**: Create pull request with description
+
+1. **Fork** the repository
+2. **Create** a feature branch: `git checkout -b feature/amazing-feature`
+3. **Commit** your changes: `git commit -m 'Add amazing feature'`
+4. **Push** to the branch: `git push origin feature/amazing-feature`
+5. **Open** a Pull Request
 
 ### Code Standards
-- **ESLint**: Enforced code quality rules
-- **Prettier**: Consistent code formatting
-- **TypeScript**: Strict type checking
-- **Conventional Commits**: Standardized commit messages
+
+- **TypeScript**: Use TypeScript for all new code
+- **ESLint**: Follow the configured ESLint rules
+- **Prettier**: Use Prettier for code formatting
+- **Testing**: Add tests for new features
+- **Documentation**: Update README for significant changes
+
+### Pull Request Template
+
+```markdown
+## Description
+Brief description of changes
+
+## Type of Change
+- [ ] Bug fix
+- [ ] New feature
+- [ ] Breaking change
+- [ ] Documentation update
+
+## Testing
+- [ ] Tests pass locally
+- [ ] New tests added
+- [ ] Manual testing completed
+
+## Screenshots
+Add screenshots for UI changes
+
+## Checklist
+- [ ] Code follows style guidelines
+- [ ] Self-review completed
+- [ ] Documentation updated
+```
+
+---
 
 ## 📄 License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
+---
+
 ## 🆘 Support
 
-### Documentation
-- **Live Demo**: [https://rag-based-symptom-checker.vercel.app](https://rag-based-symptom-checker.vercel.app)
-- **Demo Video**: [Google Drive Demo](https://drive.google.com/file/d/151tsEiB7GtM-h4byfucCxUEcjJl7z_bB/view?usp=sharing)
-- **API Documentation**: [Backend API Docs](https://symptoms-checker-api-lqcc.onrender.com/docs)
+### Getting Help
 
-### Contact
-- **Issues**: [GitHub Issues](https://github.com/your-username/healthcare-frontend/issues)
-- **Discussions**: [GitHub Discussions](https://github.com/your-username/healthcare-frontend/discussions)
+- **Documentation**: Check this README and component docs
+- **Issues**: Create a GitHub issue for bugs
+- **Discussions**: Use GitHub Discussions for questions
+- **Email**: Contact the development team
+
+### Common Issues
+
+#### Build Errors
+```bash
+# Clear Next.js cache
+rm -rf .next
+npm run build
+```
+
+#### API Connection Issues
+```bash
+# Check environment variables
+echo $NEXT_PUBLIC_API_URL
+
+# Test API connectivity
+curl $NEXT_PUBLIC_API_URL/api/health
+```
+
+#### TypeScript Errors
+```bash
+# Check TypeScript configuration
+npx tsc --noEmit
+
+# Update type definitions
+npm run type-check
+```
+
+---
+
+## 🎯 Roadmap
+
+### Upcoming Features
+
+- [ ] **Dark Mode**: Theme switching capability
+- [ ] **Offline Support**: Service worker implementation
+- [ ] **Push Notifications**: Real-time updates
+- [ ] **Voice Input**: Speech-to-text integration
+- [ ] **Multi-language**: Internationalization support
+- [ ] **Advanced Analytics**: User behavior tracking
+- [ ] **PWA Support**: Progressive Web App features
+- [ ] **Accessibility**: Enhanced WCAG compliance
+
+### Version History
+
+- **v1.0.0** (Current): Core functionality with emergency detection
+- **v1.1.0** (Planned): Dark mode and theme customization
+- **v1.2.0** (Planned): Voice input and accessibility improvements
+- **v2.0.0** (Planned): PWA and offline support
 
 ---
 
 <div align="center">
 
-**Built with ❤️ for Healthcare Innovation**
+**Built with ❤️ for better healthcare accessibility**
 
-*Empowering patients and healthcare professionals with intuitive AI-driven interfaces*
+[![GitHub stars](https://img.shields.io/github/stars/yourusername/healthcare-frontend?style=social)](https://github.com/yourusername/healthcare-frontend)
+[![GitHub forks](https://img.shields.io/github/forks/yourusername/healthcare-frontend?style=social)](https://github.com/yourusername/healthcare-frontend)
+[![GitHub issues](https://img.shields.io/github/issues/yourusername/healthcare-frontend)](https://github.com/yourusername/healthcare-frontend/issues)
 
 </div>
