@@ -263,9 +263,14 @@ export default function HomePage() {
                     </div>
                   </button>
                   
-                  <button className="px-8 py-5 bg-white/80 backdrop-blur-sm border-2 border-medical-200 text-medical-700 font-semibold rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-medical-500/30">
+                  <a 
+                    href="https://drive.google.com/file/d/151tsEiB7GtM-h4byfucCxUEcjJl7z_bB/view?usp=sharing"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-8 py-5 bg-white/80 backdrop-blur-sm border-2 border-medical-200 text-medical-700 font-semibold rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-medical-500/30 inline-block"
+                  >
                     View Demo
-                  </button>
+                  </a>
                 </div>
                 
                 {/* Trust Indicators */}
