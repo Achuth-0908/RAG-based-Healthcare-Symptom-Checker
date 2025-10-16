@@ -713,12 +713,6 @@ Add screenshots for UI changes
 
 ---
 
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
----
-
 ## 🆘 Support
 
 ### Getting Help
@@ -778,13 +772,3 @@ npm run type-check
 - **v2.0.0** (Planned): PWA and offline support
 
 ---
-
-<div align="center">
-
-**Built with ❤️ for better healthcare accessibility**
-
-[![GitHub stars](https://img.shields.io/github/stars/yourusername/healthcare-frontend?style=social)](https://github.com/yourusername/healthcare-frontend)
-[![GitHub forks](https://img.shields.io/github/forks/yourusername/healthcare-frontend?style=social)](https://github.com/yourusername/healthcare-frontend)
-[![GitHub issues](https://img.shields.io/github/issues/yourusername/healthcare-frontend)](https://github.com/yourusername/healthcare-frontend/issues)
-
-</div>
